@@ -54,7 +54,8 @@ public class ResultSetReturnImpl implements ResultSetReturn {
 			final ResultSet rs;
 			try {
 				jdbcExecuteStatementStart();
-				rs = statement.executeQuery();
+				//rs = statement.executeQuery();
+				rs = new FakeResultSet();
 			}
 			finally {
 				jdbcExecuteStatementEnd();
@@ -87,7 +88,8 @@ public class ResultSetReturnImpl implements ResultSetReturn {
 			final ResultSet rs;
 			try {
 				jdbcExecuteStatementStart();
-				rs = dialect.getResultSet( callableStatement );
+				// rs = dialect.getResultSet( callableStatement );
+				rs = new FakeResultSet();
 			}
 			finally {
 				jdbcExecuteStatementEnd();
@@ -112,7 +114,8 @@ public class ResultSetReturnImpl implements ResultSetReturn {
 			final ResultSet rs;
 			try {
 				jdbcExecuteStatementStart();
-				rs = statement.executeQuery( sql );
+				//rs = statement.executeQuery( sql );
+				rs = new FakeResultSet();
 			}
 			finally {
 				jdbcExecuteStatementEnd();
@@ -142,7 +145,8 @@ public class ResultSetReturnImpl implements ResultSetReturn {
 						// do nothing until we hit the resultset
 					}
 				}
-				rs = statement.getResultSet();
+				// rs = statement.getResultSet();
+				rs = new FakeResultSet();
 			}
 			finally {
 				jdbcExecuteStatementEnd();
@@ -172,7 +176,8 @@ public class ResultSetReturnImpl implements ResultSetReturn {
 						// do nothing until we hit the resultset
 					}
 				}
-				rs = statement.getResultSet();
+				// rs = statement.getResultSet();
+				rs = new FakeResultSet();
 			}
 			finally {
 				jdbcExecuteStatementEnd();
